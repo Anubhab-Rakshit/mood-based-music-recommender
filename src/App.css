@@ -1,0 +1,235 @@
+/* Import Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+/* CSS Variables for Spotify-inspired theme */
+:root {
+  --spotify-green: #1db954;
+  --spotify-black: #191414;
+  --spotify-light-black: #282828;
+  --spotify-white: #ffffff;
+  --spotify-gray: #b3b3b3;
+}
+
+/* Reset and base styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  background: linear-gradient(135deg, var(--spotify-black), #121212);
+  color: var(--spotify-white);
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* Main app container */
+.app-container {
+  min-height: 100vh;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+}
+
+/* Background overlay with particles */
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at center, rgba(29, 185, 84, 0.1), transparent 70%);
+  z-index: -1;
+  overflow: hidden;
+}
+
+/* Particle animation */
+.particle {
+  position: absolute;
+  background-color: var(--spotify-green);
+  border-radius: 50%;
+  opacity: 0.3;
+  animation: float 15s infinite linear;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(100vh) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.3;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateY(-100px) translateX(100px);
+    opacity: 0;
+  }
+}
+
+/* Floating music notes */
+.music-note {
+  position: absolute;
+  color: var(--spotify-green);
+  font-size: 24px;
+  animation: floatNote 20s infinite linear;
+  opacity: 0.6;
+}
+
+.note-icon {
+  display: inline-block;
+  animation: rotate 10s infinite linear;
+}
+
+@keyframes floatNote {
+  0% {
+    top: 110%;
+    transform: translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  90% {
+    opacity: 0.6;
+  }
+  100% {
+    top: -10%;
+    transform: translateX(100px);
+    opacity: 0;
+  }
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Main content area */
+.content {
+  max-width: 800px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+  background: rgba(0, 0, 0, 0.7);
+  border-radius: 20px;
+  padding: 40px 30px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+/* Glowing border effect */
+.content::before {
+  content: "";
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(45deg, #1db954, #1ed760, #191414, #1db954);
+  z-index: -1;
+  border-radius: 22px;
+  animation: borderGlow 3s linear infinite;
+  background-size: 400%;
+}
+
+@keyframes borderGlow {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+
+/* Title styling */
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  background: linear-gradient(to right, var(--spotify-green), #4eda8c);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  text-shadow: 0 0 10px rgba(29, 185, 84, 0.3);
+}
+
+.title-icon {
+  color: var(--spotify-green);
+  animation: pulse 2s infinite alternate;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+/* Subtitle styling */
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--spotify-gray);
+  text-align: center;
+  max-width: 600px;
+  margin-bottom: 20px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .content {
+    padding: 30px 20px;
+  }
+
+  .title {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .content {
+    padding: 25px 15px;
+  }
+
+  .title {
+    font-size: 1.8rem;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .subtitle {
+    font-size: 0.9rem;
+  }
+}
+

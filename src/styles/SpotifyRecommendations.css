@@ -1,0 +1,9 @@
+@media screen and (max-width: 728px){
+   
+    .recommendation-item{
+        padding-top: 2%;
+    }
+    .recommendations-list li{
+        padding-top: 2%;
+    }
+}

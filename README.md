@@ -1,6 +1,6 @@
 # 🎵 Tune In
 
-![Mood-Based Music Recommender]
+
 
 ![image](https://github.com/user-attachments/assets/3e7036ab-9b70-4eff-be98-a7f16a967359)
 
